@@ -1,0 +1,44 @@
+# hosts.yaml — Wazuh fleet registry
+#
+# Add one block per Wazuh manager VM you want the bot to reach.
+# This file is SAFE to commit — it contains no secrets.
+# Indexer passwords are stored in .env and referenced here by env var name.
+#
+# IMPORTANT: Before starting the bot for the first time, run ssh-keyscan
+# for each host to populate your known_hosts file:
+#
+#   ssh-keyscan -H <hostname_or_ip> >> ~/.ssh/known_hosts
+#
+# SSH key files must be chmod 600 or the bot will refuse to start.
+
+hosts:
+  - name: client-a                          # Friendly name used in chat and tool calls
+    hostname: 192.168.13.134                  # IP or FQDN of the Wazuh manager VM
+    ssh_port: 22
+    ssh_user: wazuh-advisor                 # Dedicated low-privilege SSH user on the VM
+    ssh_key: /ssh-key/wazuh_advisor.ppk      # Path to private key on THIS host (the bot host)
+    indexer_host: https://192.168.13.134:9200    # Indexer URL from the VM's own perspective
+    indexer_user: admin
+    indexer_password_env: INDEXER_PASS_CLIENT_A   # Name of the env var holding the password
+    tags: [uat, wazuh]
+
+  # - name: client-b
+  #   hostname: 10.0.0.5
+  #   ssh_port: 22
+  #   ssh_user: wazuh-advisor
+  #   ssh_key: ~/.ssh/wazuh_advisor_key
+  #   indexer_host: https://localhost:9200
+  #   indexer_user: admin
+  #   indexer_password_env: INDEXER_PASS_CLIENT_B
+  #   tags: [staging, kuala-lumpur]
+
+  # Add more hosts below — copy one block and update the values.
+  # - name: client-c
+  #   hostname: 10.0.0.6
+  #   ssh_port: 22
+  #   ssh_user: wazuh-advisor
+  #   ssh_key: ~/.ssh/wazuh_advisor_key
+  #   indexer_host: https://localhost:9200
+  #   indexer_user: admin
+  #   indexer_password_env: INDEXER_PASS_CLIENT_C
+  #   tags: [production, johor-bahru]

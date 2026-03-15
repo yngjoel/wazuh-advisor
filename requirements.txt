@@ -1,0 +1,12 @@
+# Wazuh Troubleshooter AI Workflow — Python dependencies
+# Reflects actual installed versions. Update intentionally.
+
+python-telegram-bot==22.6
+langchain==1.2.12
+langchain-ollama==1.0.1
+langchain-core==1.2.19
+langgraph==1.1.2
+langgraph-checkpoint-sqlite==3.0.3
+python-dotenv==1.2.1
+paramiko==4.0.0
+pyyaml>=6.0
