@@ -51,12 +51,12 @@ Telegram Bot API
 │      │         │  LLM Agent  (Ollama)  │            │
 │      │         │  GLM-4.5-Air          │            │
 │      │         └──────────┬────────────┘            │
-│      │                    │ tool calls               │
+│      │                    │ tool calls              │
 │      │         ┌──────────┴────────────┐            │
 │      │         │  tools.py             │            │
 │      │         │  6 diagnostic tools   │            │
 │      │         └──────────┬────────────┘            │
-│      │                    │ SSH                      │
+│      │                    │ SSH                     │
 │  ssh_client.py            │                         │
 │  (Paramiko pool) ─────────┘                         │
 │                                                     │
